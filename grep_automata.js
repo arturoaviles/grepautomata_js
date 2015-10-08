@@ -3,7 +3,8 @@ Arturo Avilés Castellanos
 Yael Araizaga Yerid Gracia
 **********************************************************************************************/
 
-function automata(word){
+// Create automata
+function automata(word, text){
 	//Array con las letras de la palabra en cada casilla
 	// Example:
 	// Palabra: Arturo
@@ -19,17 +20,24 @@ function automata(word){
 	}
 }
 
+// Verify if the word to search is in the ASCII Symbols
+function isASCII(str) {
+    return /^[\x00-\x7F]*$/.test(str);
+}
+
 // Start of the Program
 console.log('The program started');
 
-// Initial variables
+// Initial variables ------------------------------------------------------
 var textArea = prompt('Paste the text in which you want to search for a word: ');
-var searchWord = prompt('Write the word you want to search: ');
 
+do{
+	var searchWord = prompt('Write the word you want to search: ');
+} while(!isASCII(searchWord)); // Verify if the next variable is in ASCII
+// ------------------------------------------------------------------------ 
 
 // Create an automata that accepts searchWord
-automata(searchWord);
-
+automata(searchWord, textArea);
 
 // End of program
 console.log('The program ended correctly');
