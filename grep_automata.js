@@ -4,23 +4,42 @@ Yael Araizaga Yerid Gracia
 **********************************************************************************************/
 
 // Create automata
-function automata(word, text){
-	//Array con las letras de la palabra en cada casilla
+function createAutomata(word){
+	// Array con las letras de la palabra en cada casilla
 	// Example:
 	// Palabra: Arturo
 	// ["a","r","t","u","r","o"]
 	var transitions = word.split('');
 	
-	//Array con letras de modo creciente
+	// Array con letras de modo creciente
 	// ["a","ar","art","artu","artur","arturo"]
 	var states = [];
 	for(var i = 1; i <= word.length; i++){
 		var state = word.slice(0,i);
 		states.push(state);
 	}
+
+	// Creating an object named automata w/ states and transitions
+	var automata = {
+		states: states,
+		transitions: transitions
+	}
+
+	return automata;
 }
 
-// Verify if the word to search is in the ASCII Symbols
+// Create Tape
+function input(text){
+	var chars = text.split('');
+
+	return chars;
+}
+
+function operation(automata, input){
+
+}
+
+// Verify if the word to search is in the ASCII Symbols // Extra function
 function isASCII(str) {
     return /^[\x00-\x7F]*$/.test(str);
 }
@@ -37,7 +56,14 @@ do{
 // ------------------------------------------------------------------------ 
 
 // Create an automata that accepts searchWord
-automata(searchWord, textArea);
+var automata = createAutomata(searchWord);
+
+// Make the textArea an Array of chars
+var input = input(textArea);
+
+// Make it work!
+operation(automata,input);          //
+
 
 // End of program
 console.log('The program ended correctly');
