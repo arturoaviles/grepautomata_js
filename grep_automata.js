@@ -62,7 +62,7 @@ function operation(automata, input){
 	for (var i = 0; i <= chars.length; i++){  
 		if(chars[i]=='\n' || i == chars.length){
 			if(flag){
-				document.write("<br>"+linesCounter+" "+lines[linesCounter-1]);
+				document.write("<h2>"+linesCounter+" "+lines[linesCounter-1]+"</h2>");
 				flag = false;
 			}  
 			linesCounter++;
