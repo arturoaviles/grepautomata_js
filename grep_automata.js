@@ -49,6 +49,7 @@ function operation(automata, input){
 	var text = input;
 	var word = automata.transitions;
 
+<<<<<<< HEAD
 	// Array del texto
 	var chars = text.split(''); // This will allow to read char by char
 	var lines = text.split('\n');
@@ -86,6 +87,39 @@ function operation(automata, input){
 			}
 		}
 	}
+=======
+var check = 0;
+var linesCounter = 1; // It will increase every time it detects a '\n'
+var checkCounter = 0; // It will increase every time it detects a match
+var line = ""; // It will add each character it founds. 
+			   // If there is a '\n' (New Line) it resets
+
+//document.write('<br>'+automata.states.length+'</br>');
+//document.write('<br>'+input.length+'</br>');
+for (var i = 0; i < input.length; i++){  
+	line += input[i];           // Add new char to the line
+	if(input[i]=='\n'){     
+		line = "";              // New Line
+		linesCounter++;         // ''   '' counter
+	} 
+
+	document.write('<br>'+line+'</br>');	
+
+	for(var j = 0; j<= automata.states.length; j++){
+		if(input[i]==automata.states[j]){ 
+			check++;
+			document.write('<br>'+check+'</br>');
+		}					// Every char it matches increases +1
+		else if(input[i]=='\s'){
+			if(check==automata.states.length){
+				check = 0;                                // Resets 
+				document.write(linesCounter+'<br>'+line+'</br>');
+			}
+		}             	
+	}
+}	
+
+>>>>>>> 47e6e1d7f6f001028840033cbef8b90d07538f7e
 }
 
 // Verify if the word to search is in the ASCII Symbols // Extra function
