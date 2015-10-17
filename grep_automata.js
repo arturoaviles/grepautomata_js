@@ -52,10 +52,7 @@ function operation(automata, input){
 	// Array del texto
 	var chars = text.split(''); // This will allow to read char by char
 	var lines = text.split('\n');
-	
-	// Array de la palabra
-	var word = word.split(''); // This will allow to compare it
-	
+		
 	// Counters
 	var linesCounter = 1; // It will increase every time it detects a '\n'
 	var checkCounter = 0; // It will increase every time it detects a match
